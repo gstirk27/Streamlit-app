@@ -1,0 +1,6 @@
+_pycache_
+.DS_Store
+NameData/
+cheatsheet.*
+names.csv
+*.ipynb
