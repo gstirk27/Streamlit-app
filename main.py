@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import requests
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+from io import BytesIO
 from my_plots import *
 import streamlit as st
 
