@@ -200,5 +200,6 @@ def one_hit_wonders(ohw_data, year=1977):
     return "will this work"
 
 def common_name_summary(df,name) :
-    sum = df[df['name'] == name].value_counts()
-    return sum
+    #sum = df[df['name'] == name].value_counts()
+    #df['name']
+    return df
