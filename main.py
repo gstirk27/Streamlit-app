@@ -59,7 +59,8 @@ with tab2:
     st.dataframe(output_table)
 
 with tab3:
-    st.write('How common is the name: ', name_data)
-    common_names = common_name_summary(data,name = name_data)
+    #st.write('How common is the name: ', name_data)
+    #common_names = common_name_summary(data,name = name_data)
+    one_hit_wonders(data,year=year_input)
 
 #new tab with unique names?
