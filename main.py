@@ -42,19 +42,24 @@ with st.sidebar:
     input_name = st.text_input('Enter a name:', 'John')
     name_data = data[data['name']==input_name].copy()
     year_input = st.slider('Year', min_value=1880,max_value=2023,value=2000)
-    n_names = st.radio('Number of names per sex', [3,5,10])
+    
 
-tab1, tab2 = st.tabs(['Name','Year'])
+tab1, tab2, tab3 = st.tabs(['Name','Year','How Common'])
 with tab1:
     fig = px.line(name_data, x='year',y='count',color='sex')
     st.plotly_chart(fig)
 
 with tab2:
+    n_names = st.radio('Number of names per sex', [3,5,10])
     fig2 = top_names_plot(data,year=year_input,n=n_names)
     st.plotly_chart(fig2)
 
     st.write('Unique Names Table')
     output_table = unique_names_summary(data,2000)
     st.dataframe(output_table)
+
+with tab3:
+    st.write('How common is the name: ', name_data)
+    common_names = common_name_summary(data,year = year_input)
 
 #new tab with unique names?

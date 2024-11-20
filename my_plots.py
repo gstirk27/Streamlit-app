@@ -197,3 +197,7 @@ def one_hit_wonders(ohw_data, year=1977):
             print(f"Most common male one-hit wonder: {most_common_male['name']} with {most_common_male['count']} occurrences")
         except:
             print(f"Not enough data to calculate one-hit wonders by sex in {year}")
+
+def common_name_summary(df,name) :
+    sum = df[df['name'] == name].value_counts()
+    return sum
