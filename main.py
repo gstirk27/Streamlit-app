@@ -54,10 +54,6 @@ with tab2:
     fig2 = top_names_plot(data,year=year_input,n=n_names)
     st.plotly_chart(fig2)
 
-    st.write('Unique Names Table')
-    output_table = unique_names_summary(data,2000)
-    st.dataframe(output_table)
-
 with tab3:
     st.write('How common is the name: ', name_data)
     common_names = common_name_summary(data,name = name_data)
