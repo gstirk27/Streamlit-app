@@ -60,6 +60,6 @@ with tab2:
 
 with tab3:
     st.write('How common is the name: ', name_data)
-    common_names = common_name_summary(data,year = year_input)
+    common_names = common_name_summary(data,name = name_data)
 
 #new tab with unique names?
