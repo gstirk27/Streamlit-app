@@ -65,4 +65,8 @@ with tab3:
     output_table = unique_names_summary(data,2000)
     st.dataframe(output_table)
 
+    st.plotly_chart(name_frequencies_plot(data,year=year_input))
+
+
+
 #new tab with unique names?

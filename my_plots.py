@@ -28,7 +28,7 @@ def top_names_plot(df, year=2000, n=10, width=800, height=600, variable='count')
     return fig  
 
 
-def name_frequencies_plot(df, year=200, width=800, height=600):
+def name_frequencies_plot(df, year=2000, width=800, height=600):
     year_data = df[df['year'] == year].copy()
     name_counts = year_data.groupby(['name', 'sex'])['count'].sum().reset_index()
     color_map = {"M": "#636EFA", "F": "#EF553B"}
