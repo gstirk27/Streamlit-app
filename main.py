@@ -36,7 +36,7 @@ def ohw(df):
 data = load_name_data()
 ohw_data = ohw(data)
 
-st.title("My Cool Name App")
+st.title("US Names")
 
 with st.sidebar:
     input_name = st.text_input('Enter a name:', 'John')
