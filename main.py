@@ -59,9 +59,12 @@ with tab2:
     st.dataframe(output_table)
 
 with tab3:
-    #st.write('How common is the name: ', name_data)
-    #common_names = common_name_summary(data,name = name_data)
-    one_hit_wonders(data,year=year_input)
+    st.write('How common is the name: ', name_data)
+    common_names = common_name_summary(data,name = name_data)
+    st.dataframe(common_names)
+    
+    st.text(one_hit_wonders(data,year=year_input))
+    
     st.write('Unique Names Table')
     output_table = unique_names_summary(data,2000)
     st.dataframe(output_table)
