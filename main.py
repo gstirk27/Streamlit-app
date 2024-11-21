@@ -44,29 +44,35 @@ with st.sidebar:
     year_input = st.slider('Year', min_value=1880,max_value=2023,value=2000)
     
 
-tab1, tab2, tab3 = st.tabs(['Name','Year','How Common'])
+tab1, tab2, tab3 = st.tabs(['Name Trends','Top Names','How Common'])
 with tab1:
     fig = px.line(name_data, x='year',y='count',color='sex')
     st.plotly_chart(fig)
 
 with tab2:
-    n_names = st.radio('Number of names per sex', [3,5,10])
-    fig2 = top_names_plot(data,year=year_input,n=n_names)
-    st.plotly_chart(fig2)
+    col1, col2 = st.columns(2)
+    with col1:
+        n_names = st.radio('Number of names per sex', [3,5,10])
+        fig2 = top_names_plot(data,year=year_input,n=n_names)
+        st.plotly_chart(fig2)
+
+    with col2: 
+        st.write(f'Unique Names Table for {year_input}')
+        output_table = unique_names_summary(data,year=year_input)
+        st.dataframe(output_table)
 
 with tab3:
-    st.write('How common is the name: ', name_data)
-    common_names = common_name_summary(data,name = name_data)
-    st.dataframe(common_names)
-    
-    st.text(one_hit_wonders(data,year=year_input))
-    
-    st.write('Unique Names Table')
-    output_table = unique_names_summary(data,2000)
-    st.dataframe(output_table)
+    st.write(f'How common is the name {input_name}?')
+    common_names = common_name_summary(name_data,input_name)
+    st.write(common_names)
 
+    st.subheader('Comparison ')
+    name2 = st.text_input('Enter another name', 'Mary')
+    name2_data = data[data['name']==name2].copy()
+    second_name_info = common_name_summary(name2_data,name2)
+    st.write(second_name_info)
+    compare = name_comparison(name_data,name2_data,input_name,name2,year_input)
+    st.write(compare)
+
+    st.subheader("Name Frequencies")
     st.plotly_chart(name_frequencies_plot(data,year=year_input))
-
-
-
-#new tab with unique names?

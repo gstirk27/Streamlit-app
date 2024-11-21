@@ -197,9 +197,19 @@ def one_hit_wonders(ohw_data, year=1977):
             print(f"Most common male one-hit wonder: {most_common_male['name']} with {most_common_male['count']} occurrences")
         except:
             print(f"Not enough data to calculate one-hit wonders by sex in {year}")
-    return "will this work"
 
-def common_name_summary(df,name) :
-    #sum = df[df['name'] == name].value_counts()
-    #df['name']
-    return pd.DataFrame(df)
+def common_name_summary(namedata,name='John') :
+    total = namedata['count'].sum()
+    results = f'There have been {total} people named {name} in America.'
+    return results
+
+def name_comparison(name1data,name2data,name1,name2,year) :
+    #total1 = name1data['count'].sum()
+    #total2 = name2data['count'].sum()
+    num1 = name1data[name1data['year'] == year]['count'].sum()
+    num2 = name2data[name2data['year'] == year]['count'].sum()
+    diff = abs(num1 - num2)
+    string = f'In the year {year} the name {name1} occured {num1} time and the name {name2} occured {num2} times.\n 
+    This is a difference of {diff}'
+    return string
+
