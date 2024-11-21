@@ -204,12 +204,9 @@ def common_name_summary(namedata,name='John') :
     return results
 
 def name_comparison(name1data,name2data,name1,name2,year) :
-    #total1 = name1data['count'].sum()
-    #total2 = name2data['count'].sum()
     num1 = name1data[name1data['year'] == year]['count'].sum()
     num2 = name2data[name2data['year'] == year]['count'].sum()
     diff = abs(num1 - num2)
-    string = f'In the year {year} the name {name1} occured {num1} time and the name {name2} occured {num2} times.\n 
-    This is a difference of {diff}'
+    string = f'In the year {year} the name {name1} occured {num1} times and the name {name2} occured {num2} times.\n This is a difference of {diff}.'
     return string
 
